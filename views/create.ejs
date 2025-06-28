@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+    <header>
+        <div><p>TECH VERSE</p></div>
+        <ul>
+            <li>Categories</li>
+            <li>Labs</li>
+            <li>Emerging</li>
+        </ul>
+    </header>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <main>
+        <form action="#" method="post">
+
+            <label for="author">Author</label>
+            <input type="text" id="blog_author" name="blog_author">            
+
+            <label for="blog_subject">Subject</label>
+            <input type="text" id="blog_subject" name="blog_subject">
+            
+            <label for="blog_snippet">Snippet</label>
+            <input type="text" id="blog_snippet" name="blog_snippet">
+            
+            <label for="blog_body">Body</label>
+            <textarea name="blog_body" id="blog_body"></textarea>
+        </form>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+    
+</body>
+</html>
