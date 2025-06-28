@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables (you'll likely need these soon)
+.env
+
+# Logs
+*.log
+
