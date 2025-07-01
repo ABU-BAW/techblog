@@ -5,19 +5,17 @@
 
 <body>
 
-    <header>
-        <div><p>TECH VERSE</p></div>
-        <ul>
-            <li>Categories</li>
-            <li>Labs</li>
-            <li>Emerging</li>
-        </ul>
-    </header>
+    <%- include('./partials/heading.ejs') %>
 
     <%- include('./partials/nav.ejs') %>
 
     <main>
-        <h1>Teching Today!!!</h1>
+        <div class="content-heading"><h2>Teching Today!!!</h2></div>
+        <div class="blogs">
+            <div>blog 1</div>
+            <div>blog 2</div>
+            <div>blog 3</div>
+        </div>
     </main>
 
     <%- include('./partials/footer.ejs') %>
