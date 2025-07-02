@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/heading.ejs') %>
+
+    <%- include('./partials/nav.ejs') %>
+
+    <main>
+        <div class="blog-detail">
+            <h3><%= blog.blog_subject %></h3>
+            <p><%= blog.blog_body %></p>
+        </div>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+    
+
+</body>
+</html>

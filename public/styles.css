@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'abel';
+    font-family: 'abel', sans-serif;
     src: url('/fonts/abel-regular-webfont.woff') format('woff');
          
     font-weight: normal;
@@ -124,6 +124,40 @@ label{
   margin-bottom: 0.3em;
   font-weight: bold;
   font-size: 1rem;
+}
+
+.blogs{
+
+  align-self:flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.blog-card{
+  border-left: 4px solid crimson;
+  padding-left: 0.8rem;
+  border-radius: 0.2rem;
+  width: 30rem;
+  position: relative;
+}
+
+.delete{
+  position : absolute;
+  top: 0;
+  right: 0;
+  padding : 1.2rem;
+  border-radius: 50%;
+
+}
+
+.delete:hover{
+  cursor: pointer;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card:hover{
+  color: crimson;
 }
 
 input, textarea{

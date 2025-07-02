@@ -11,14 +11,52 @@
 
     <main>
         <div class="content-heading"><h2>Teching Today!!!</h2></div>
+
         <div class="blogs">
-            <div>blog 1</div>
-            <div>blog 2</div>
-            <div>blog 3</div>
+
+            <% if (blogs.length > 0) { %>
+
+               <% blogs.forEach(blog => {  %>
+
+                    <a href="/blogs/<%= blog._id %>">
+                        <div class="blog-card">
+                            <h3><%= blog.blog_subject %></h3>
+                            <p><%= blog.blog_body %></p>
+
+                            <a class="delete" data-doc="<%= blog._id %>" >Delete</a>
+                        </div>
+                    </a>
+
+                <% }) %>
+
+            <% } else { %>
+                <p>No blogs to display</p>
+            <% } %>
         </div>
     </main>
 
     <%- include('./partials/footer.ejs') %>
+
+    <script>
+        const trashcan = document.querySelector('a.delete');
+
+        trashcan.addEventListener('click',(e) => {
+            const endpoint = `/blogs/${trashcan.dataset.doc}`;
+
+            fetch(endpoint, {
+                method : 'DELETE'
+            })
+            .then((response) => 
+                response.json()
+            )
+            .then((data) => 
+                window.location.href = data.redirect
+            )
+            .catch((err) => 
+                console.log(err)
+            )
+        })
+    </script>
 
 </body>
 </html>

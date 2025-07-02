@@ -6,7 +6,9 @@ const app = express();
 //set view engine
 app.set('view engine', 'ejs');
 
+//middleware
 app.use(express.static('public'));
+app.use(express.urlencoded({extended : true}))
 
 //database connection
 
@@ -24,26 +26,59 @@ mongoose.connect(dbURI)
 
 
 //blog-routes
-app.get('/all-blogs', (req, res) => {
-    const blogs = new Blog({
-        author : 'xann',
-        subject : 'motor',
-        snippet : 'motor are beautiful',
-        body : 'are very beautiful'
-    })
 
-    blogs.save()
+
+app.post('/blogs', (req, res) => {
+    const blog = new Blog(req.body)
+    
+    blog.save()
         .then((result) => {
-            res.send(result);
+            res.redirect('/blogs');
         })
-        .catch((err) => { 
-            console.log(err)
+        .catch((err) => {
+            console.log(err);
         })
 })
 
 
 app.get('/', (req, res) => {
-    res.render('index', {title: 'home'})
+    res.redirect('/blogs');
+})
+
+app.get('/blogs', (req, res) => {
+
+    Blog.find().sort({createdAt : -1})
+        .then((result) => {
+            res.render('index', {title: 'All blogs', blogs : result });
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+})
+
+app.get('/blogs/:id', (req, res) => {
+    const  id = req.params.id;
+
+    Blog.findById(id)
+        .then((result) => {
+            res.render('details', {title : 'blog detail', blog : result});
+        })
+        .catch((err) => {
+            console.log(err); 
+        })
+})
+
+app.delete('/blogs/:id', (req, res) => {
+    const id = req.params.id;
+
+    Blog.findByIdAndDelete(id)
+
+        .then((result) => {
+            res.json({redirect : '/blogs'});   
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 })
 
 app.get('/about', (req, res) => {

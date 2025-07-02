@@ -3,22 +3,22 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const blogSchema = new Schema({
-    author : {
+    blog_author : {
         type : String,
         required : true
     },
 
-    subject : {
+    blog_subject : {
         type: String,
         required: true
     },
 
-    snippet : {
+    blog_snippet : {
         type: String,
         required: true
     },
 
-    body : {
+    blog_body : {
         type : String,
         required : true
     }
