@@ -61,7 +61,7 @@ cp .env.example .env
 npm run dev
 ```
 
-Visit `http://localhost:3000` to explore TechVerse.
+Visit `https://abu-baw.github.io/techblog/` to explore TechVerse.
 
 ## Target Audience
 
